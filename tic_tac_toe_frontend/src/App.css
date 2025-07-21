@@ -1,12 +1,14 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
+  --primary: #2d89ef;
+  --secondary: #e3e3e3;
+  --accent: #ffd700;
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --text-primary: #282c34;
-  --text-secondary: #61dafb;
+  --text-secondary: #646464;
   --border-color: #e9ecef;
-  --button-bg: #007bff;
+  --button-bg: var(--primary);
   --button-text: #ffffff;
 }
 
@@ -101,4 +103,143 @@
     padding: 8px 16px;
     font-size: 12px;
   }
+  .ttt-board {
+    width: 90vw;
+    height: 90vw;
+    max-width: 350px;
+    max-height: 350px;
+  }
 }
+
+/* --- Tic Tac Toe custom styles --- */
+.ttt-title-block {
+  margin: 20px 0 0 0;
+}
+.ttt-title {
+  margin: 0 0 4px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+.ttt-subtitle {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+.ttt-status {
+  font-size: 1.2rem;
+  margin: 0.5em 0 1em 0;
+  font-weight: 500;
+  color: var(--primary);
+}
+.ttt-winner {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 1.5px;
+}
+.ttt-draw {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.ttt-turn {
+  color: var(--primary);
+}
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 64px);
+  gap: 8px;
+  margin: 1.5em 0 1em 0;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 18px;
+  box-shadow: 0 1.5px 24px rgba(44,136,239,0.10);
+  padding: 20px;
+}
+
+.ttt-cell {
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border: 2.5px solid var(--primary);
+  border-radius: 12px;
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 2px rgba(80,80,80,0.03);
+  outline: none;
+}
+.ttt-cell.filled {
+  background: var(--secondary);
+  color: #aaa;
+  cursor: not-allowed;
+}
+.ttt-cell:focus, .ttt-cell:hover {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.ttt-scoreboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 0.5em;
+  margin-top: 0.2em;
+}
+.ttt-score {
+  font-size: 1.12em;
+  color: var(--primary);
+  font-weight: 600;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 18px;
+  border: 1px solid var(--border-color);
+  letter-spacing: 0.3px;
+}
+.ttt-score.ttt-x {
+  border-bottom: 3.5px solid var(--primary);
+}
+.ttt-score.ttt-o {
+  border-bottom: 3.5px solid var(--accent);
+}
+.ttt-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1.3em;
+  gap: 18px;
+}
+.ttt-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 0.8em 1.7em;
+  font-size: 1em;
+  font-family: inherit;
+  box-shadow: 0 2px 4px rgba(44,136,239,0.07);
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.7px;
+  transition: all 0.14s;
+}
+.ttt-btn-accent {
+  background: var(--accent);
+  color: #1e293b;
+}
+.ttt-btn:active {
+  transform: scale(0.99);
+  filter: brightness(0.97);
+}
+
